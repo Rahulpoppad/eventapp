@@ -1,0 +1,30 @@
+{
+    "dev": {
+        "aws_region": "eu-north-1",
+        "django_settings": "emspr.settings",
+        "exclude": [
+            "boto3",
+            "dateutil",
+            "botocore",
+            "s3transfer",
+            "concurrent"
+        ],
+        "include": [
+            "psycopg2/*"
+        ],
+        "vpc_config": {
+            "SubnetIds": [
+                "subnet-0882abf5116371a86",
+                "subnet-0b07be336cc332cce",
+                "subnet-0b537ccb74b7d76ec"
+            ],
+            "SecurityGroupIds": [
+                "sg-08ce3c8355175b5df"
+            ]
+        },
+        "profile_name": "default",
+        "project_name": "emspr",
+        "runtime": "python3.11",
+        "s3_bucket": "eventapp-zappa-s3"
+    }
+}

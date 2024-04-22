@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <h5 style="text-align: center; font-weight: bolder; font-size: 2em">
+        Welcome to Eventify
+      </h5>
+      <div class="d-flex align-items-center justify-content-center p-4">
+        <a href="{% url 'index' %}" class="btn gradient-custom-2 px-4 py-1"
+          >Get Started</a
+        >
+    </div>
+</div>
+{% endblock %}

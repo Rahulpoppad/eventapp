@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  postgres_db:
+    build: database/postgres
+    container_name: eventify_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user_postgres
+      POSTGRES_PASSWORD: password_postgres
+      POSTGRES_DB: db_postgres
+    networks:
+      - house_keeping_network
+      
+  housekeeper_api:
+    build: .
+    container_name: eventify_api
+    ports:
+      - "80:8000"
+    environment:
+      DATABASE_NAME: db_postgres
+      DATABASE_USER: user_postgres
+      DATABASE_PASSWORD: password_postgres
+      DATABASE_HOST: postgres_db
+      DATABASE_PORT: 5432
+      EMAIL_HOST_PASSWORD: "hbyc ljcj mjwh fpgz"
+      EMAIL_HOST: smtp.gmail.com
+      EMAIL_HOST_USER: rahulpoppad.1999@gmail.com
+      EMAIL_USE_TLS: 1
+      EMAIL_PORT: 587
+      DEBUG: 1
+    depends_on:
+      - postgres_db
+    networks:
+      - house_keeping_network
+
+networks:
+  house_keeping_network: {}
